@@ -1,0 +1,57 @@
+---
+title: "Installation"
+description: "Install Logic Squads and configure its framework and database."
+icon: "download"
+---
+
+## Requirements
+
+- `ox_lib`
+- `oxmysql`
+- ESX, QBCore, Qbox, or ox_core
+- OneSync recommended for live coordinates, health, and armor
+- Optional: `pma-voice` for radio-talking HUD events
+
+## Install the resource
+
+<Steps>
+  <Step title="Add the resource">
+    Place the `logic-squads` folder inside your resources directory without renaming it.
+  </Step>
+  <Step title="Configure the resource">
+    Review the files inside `config/` before starting it for the first time.
+  </Step>
+  <Step title="Choose database setup">
+    Keep `ServerConfig.AutoCreateTables = true`, or manually import `logic_squads.sql` and disable automatic creation.
+  </Step>
+  <Step title="Set the start order">
+    Start oxmysql, ox_lib, and your framework before Logic Squads.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure oxmysql
+ensure ox_lib
+ensure es_extended
+ensure logic-squads
+```
+
+Replace `es_extended` with `qb-core`, `qbx_core`, or `ox_core` when required.
+
+## Administrator permission
+
+```cfg server.cfg
+add_ace group.admin logic-squads.admin allow
+```
+
+The resource also recognizes the configured framework groups: `owner`, `god`, `superadmin`, and `admin` by default.
+
+## Database tables
+
+Logic Squads uses:
+
+- `logic_squads`
+- `logic_squad_members`
+
+The member table has a foreign key to `logic_squads` and deletes related members when a squad is removed.
+

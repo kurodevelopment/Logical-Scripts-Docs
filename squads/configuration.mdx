@@ -1,0 +1,71 @@
+---
+title: "Configuration"
+description: "Configure squad limits, validation, design, defaults, and administrator access."
+icon: "settings"
+---
+
+## Shared configuration
+
+Edit `config/shared_config.lua`:
+
+```lua
+Shared.FallbackImage = './images/the-south-logo.png'
+Shared.Language = 'en'
+Shared.MaximumSquadPlayers = 35
+```
+
+Replace `Shared.FallbackImage` with your own image inside `web/build` if you do not want the packaged fallback artwork.
+
+## Client design
+
+`Config.Design` in `config/client_config.lua` controls the primary color, button background, text gradient, container background, accents, and destructive-action styling.
+
+```lua
+Config.Design = {
+    primaryColor = '#FFFFFF',
+    buttonBg = '#141414',
+    bgAccent = 'rgba(255, 255, 255, 0.06)',
+    joinButton = 'rgba(255, 255, 255, 0.08)',
+    backAccent = 'rgba(255, 0, 0, 0.05)'
+}
+```
+
+## Feature switches
+
+```lua
+Config.Settings = {
+    Menu_Command = 'squads',
+    Relations = true,
+    Blips = true,
+    Hud = true,
+    Tags = true,
+    Pings = true
+}
+```
+
+## Server validation
+
+Edit `config/server_config.lua`:
+
+| Setting | Default | Purpose |
+| --- | --- | --- |
+| `AutoCreateTables` | `true` | Creates both SQL tables automatically. |
+| `UpdateInterval` | `1000` | Squad state update interval in milliseconds. |
+| `MessageCooldown` | `750` | Minimum delay between squad chat messages. |
+| `PingCooldown` | `1000` | Server-side ping cooldown. |
+| `NameMinLength` / `NameMaxLength` | `3` / `12` | Squad name limits. |
+| `PasswordMinLength` / `PasswordMaxLength` | `1` / `5` | Optional password limits. |
+| `MessageMinLength` / `MessageMaxLength` | `1` / `70` | Squad chat limits. |
+| `MaxImageLength` | `2048` | Maximum profile or squad image URL length. |
+| `AdminAce` | `logic-squads.admin` | ACE permission for admin commands. |
+
+## Profile picture hook
+
+Return an image URL from `ServerConfig.ResolveProfilePicture` when your framework or identity system provides one.
+
+```lua
+ServerConfig.ResolveProfilePicture = function(source, identifier)
+    return nil
+end
+```
+

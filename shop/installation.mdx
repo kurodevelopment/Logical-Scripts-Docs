@@ -1,0 +1,48 @@
+---
+title: "Installation"
+description: "Install Logic Shop with ESX or QBCore."
+icon: "download"
+---
+
+## Requirements
+
+- `ox_lib`
+- `es_extended` or `qb-core`
+- An inventory containing every configured shop item
+- Optional: `ox_inventory`
+- Optional: a supported banking resource for business revenue
+
+## Install the resource
+
+<Steps>
+  <Step title="Add the resource">
+    Place the `logic_shop` folder inside your server resources directory without renaming it.
+  </Step>
+  <Step title="Configure your framework">
+    Open `config.lua` and set `Config.Framework` to `esx`, `qb`, or `auto`.
+  </Step>
+  <Step title="Verify inventory items">
+    Make sure every item listed under `Config.Shops` exists in your inventory before starting the resource.
+  </Step>
+  <Step title="Set the start order">
+    Start ox_lib and your framework before Logic Shop.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure ox_lib
+ensure es_extended
+ensure ox_inventory
+ensure logic_shop
+```
+
+For QBCore, replace `es_extended` with `qb-core`. `ox_inventory` is optional when using the native framework inventory.
+
+## Database
+
+The current `v1.2.0` build loads shops directly from `config.lua` and does **not** query the included `logic_shop.sql` tables. No SQL import is required for the packaged config-based version.
+
+<Warning>
+Do not import the included SQL expecting config shops or stock to become persistent. The current server code keeps configured stock in memory and rebuilds it when the resource restarts.
+</Warning>
+

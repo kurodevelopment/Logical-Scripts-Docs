@@ -1,0 +1,37 @@
+---
+title: "Logic Squads"
+description: "A framework-ready squad system with live coordination, HUD, chat, and pings."
+icon: "users"
+---
+
+**Logic Squads** is a multiplayer squad system for FiveM with live squad creation, password-protected joining, ownership controls, chat, tactical pings, teammate HUD elements, map blips, nametags, and friendly relationship protection.
+
+## Features
+
+- Automatic ESX, QBCore, Qbox, and ox_core bridge detection
+- Create, search, join, edit, leave, and close squads
+- Optional password-protected squads
+- Ownership transfer and member removal controls
+- Squad-only chat with configurable limits and cooldowns
+- Quick pings and a hold-to-open tactical ping wheel
+- Teammate HUD, health, armor, radio activity, blips, and nametags
+- Per-player UI settings with configurable defaults
+- Friendly relationship groups to prevent squad damage
+- Automatic database table creation
+- Client and server exports for other resources
+- ACE and framework-group administrator support
+
+## Session behavior
+
+Squad membership is active for the current connection. When a player disconnects, their live membership is removed. If the owner disconnects while members remain online, ownership transfers automatically; otherwise the squad closes.
+
+## Player access
+
+Players open the interface with:
+
+```text
+/squads
+```
+
+The command can be changed in `config/client_config.lua`.
+

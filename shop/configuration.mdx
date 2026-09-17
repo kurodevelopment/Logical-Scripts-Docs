@@ -1,0 +1,58 @@
+---
+title: "Configuration"
+description: "Configure the framework, interactions, payments, markers, and default blips."
+icon: "settings"
+---
+
+## General settings
+
+```lua config.lua
+Config.Framework = 'esx' -- auto | qb | esx
+Config.Debug = false
+Config.OpenKey = 38
+Config.InteractDistance = 2.0
+Config.ServerValidationDistance = 5.0
+Config.DrawDistance = 15.0
+Config.CurrencySymbol = '$'
+Config.CardLabel = 'Card'
+Config.CashLabel = 'Cash'
+Config.DefaultLogo = 'logo.png'
+```
+
+| Setting | Purpose |
+| --- | --- |
+| `Framework` | Chooses ESX, QBCore, or automatic detection. |
+| `OpenKey` | FiveM control ID used to open a nearby shop. `38` is E. |
+| `InteractDistance` | Client distance required to display the interaction. |
+| `ServerValidationDistance` | Maximum server-side distance accepted at checkout. |
+| `DrawDistance` | Distance at which the client begins processing a shop. |
+| `CurrencySymbol` | Symbol displayed inside the storefront. |
+| `DefaultLogo` | Default image loaded from the `html` folder. |
+
+## Marker settings
+
+Markers are disabled by default. Enable them if you want a visible world marker at every shop location.
+
+```lua
+Config.Marker = {
+    enabled = true,
+    type = 2,
+    size = vec3(0.2, 0.2, 0.2),
+    color = { r = 255, g = 255, b = 255, a = 180 }
+}
+```
+
+## Default blip settings
+
+```lua
+Config.BlipDefaults = {
+    enabled = true,
+    sprite = 52,
+    color = 0,
+    scale = 0.65,
+    label = 'Logic Shop'
+}
+```
+
+Each shop can override these values with its own `blip` table.
+

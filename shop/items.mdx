@@ -1,0 +1,48 @@
+---
+title: "Items & Stock"
+description: "Configure categories, inventory items, prices, quantities, and stock."
+icon: "package"
+---
+
+## Item format
+
+```lua
+{
+    name = 'lockpick',
+    label = 'Lockpick',
+    price = 100,
+    stock = -1
+}
+```
+
+| Field | Description |
+| --- | --- |
+| `name` | Exact inventory item or weapon name. |
+| `label` | Display label. If omitted, the resource checks ox_inventory or QBCore. |
+| `price` | Server-authoritative price per item. |
+| `stock` | `-1` for unlimited stock or a non-negative quantity. |
+
+## Categories
+
+Categories control the tabs shown in the shop interface.
+
+```lua
+categories = {
+    {
+        name = 'Drinks',
+        items = {
+            { name = 'water', label = 'Water', price = 10, stock = -1 },
+            { name = 'coffee', label = 'Coffee', price = 15, stock = 25 }
+        }
+    }
+}
+```
+
+## Checkout validation
+
+The server checks the selected shop, player distance, accepted payment method, requested quantity, configured item, available stock, balance, and inventory capacity. Cart quantities must be between `1` and `100` per line.
+
+<Note>
+Finite stock is stored in memory. It resets to the configured value whenever the resource or server restarts.
+</Note>
+

@@ -1,0 +1,30 @@
+---
+title: "Logic Squads FAQ"
+description: "Common Logic Squads setup and troubleshooting answers."
+icon: "circle-help"
+---
+
+<AccordionGroup>
+  <Accordion title="Why does /squads not open?">
+    Confirm `ox_lib`, `oxmysql`, your framework, and `logic-squads` are started in that order. Also check `Config.Settings.Menu_Command` for a changed command name.
+  </Accordion>
+  <Accordion title="Which frameworks are supported?">
+    The bridge checks for qbx_core, qb-core, ox_core, and es_extended, in that order, then loads the matching client and server bridge.
+  </Accordion>
+  <Accordion title="Do I have to import the SQL file?">
+    No when `ServerConfig.AutoCreateTables = true`. Import `logic_squads.sql` manually only when you disable automatic table creation.
+  </Accordion>
+  <Accordion title="Why are squad blips or health updates delayed?">
+    Use OneSync and verify `ServerConfig.UpdateInterval`. The default is one update every 1000 milliseconds.
+  </Accordion>
+  <Accordion title="Why is the radio icon not updating?">
+    The HUD listens for pma-voice radio events. Start and configure pma-voice, or disable the radio icon in the default settings.
+  </Accordion>
+  <Accordion title="Why can an admin command not be used?">
+    Grant `logic-squads.admin` with ACE or add the user's framework group to `ServerConfig.AdminGroups`.
+  </Accordion>
+  <Accordion title="What happens when the squad owner disconnects?">
+    Ownership transfers to an online member. If no members remain, the live squad closes.
+  </Accordion>
+</AccordionGroup>
+

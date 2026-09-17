@@ -1,0 +1,42 @@
+---
+title: "Commands & Permissions"
+description: "Player and administrator commands included with Logic Squads."
+icon: "terminal"
+---
+
+## Player command
+
+| Command | Description |
+| --- | --- |
+| `/squads` | Opens the squad browser and management interface. |
+
+Change this command with `Config.Settings.Menu_Command`.
+
+## Administrator commands
+
+| Command | Description |
+| --- | --- |
+| `/squadhudpos [playerId]` | Copies the saved HUD coordinates for the target player. Defaults to the command user. |
+| `/resetsquadsettings` | Resets squad UI settings for every online player. |
+
+## ACE access
+
+```cfg server.cfg
+add_ace group.admin logic-squads.admin allow
+```
+
+## Framework groups
+
+The default `ServerConfig.AdminGroups` also allows these framework groups:
+
+```lua
+ServerConfig.AdminGroups = {
+    owner = true,
+    god = true,
+    superadmin = true,
+    admin = true
+}
+```
+
+Remove any group that should not use the administrator commands.
+

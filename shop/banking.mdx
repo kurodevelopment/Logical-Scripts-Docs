@@ -1,0 +1,44 @@
+---
+title: "Banking Integration"
+description: "Deposit shop revenue into supported business or society accounts."
+icon: "landmark"
+---
+
+## Banking settings
+
+```lua
+Config.Banking = 'auto'
+Config.DepositBusinessRevenue = true
+Config.DefaultSocietyPrefix = 'society_'
+```
+
+Supported adapters:
+
+- `okokBanking`
+- `fd_banking`
+- `Renewed-Banking`
+- `tgg-banking`
+- `wasabi_banking`
+- `qb-banking`
+- `qb-management`
+- `esx_addonaccount`
+- `none`
+
+Set `Config.Banking = 'auto'` to select the first supported banking resource that is currently started.
+
+## Connect a shop account
+
+```lua
+society = 'society_barber'
+```
+
+After a successful purchase, the full checkout total is sent to the configured society when business deposits are enabled.
+
+<Note>
+Leave `society = ''` when a shop should not deposit revenue into a business account.
+</Note>
+
+## ESX society prefix
+
+For `esx_addonaccount`, Logic Shop automatically adds `Config.DefaultSocietyPrefix` when the supplied account does not already begin with `society_`.
+

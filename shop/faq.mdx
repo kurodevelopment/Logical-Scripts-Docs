@@ -1,0 +1,30 @@
+---
+title: "Logic Shop FAQ"
+description: "Common Logic Shop setup and configuration questions."
+icon: "circle-help"
+---
+
+<AccordionGroup>
+  <Accordion title="Why does the shop not open?">
+    Confirm `ox_lib`, your framework, and `logic_shop` are started in that order. Verify the configured coordinate, `Config.InteractDistance`, and that E is still control ID `38`.
+  </Accordion>
+  <Accordion title="Why does an item show its internal name?">
+    Add a `label` to the item entry or make sure the item exists in ox_inventory or QBCore's shared items table.
+  </Accordion>
+  <Accordion title="Why does checkout say the player cannot carry the item?">
+    The server uses `ox_inventory:CanCarryItem` when ox_inventory is running. Check the player's weight, slots, and the item's inventory definition.
+  </Accordion>
+  <Accordion title="Does stock save after a restart?">
+    No. Finite stock is held in memory and resets from `config.lua` when the resource starts.
+  </Accordion>
+  <Accordion title="Do I need to import logic_shop.sql?">
+    Not for the current config-based build. The packaged server code does not query those tables.
+  </Accordion>
+  <Accordion title="Does the jobs table restrict employee shops?">
+    Not in `v1.2.0`. Add server-side job validation before treating a configured shop as restricted.
+  </Accordion>
+  <Accordion title="Why is society money not depositing?">
+    Verify the selected banking adapter is started, the shop has a non-empty `society`, and `Config.DepositBusinessRevenue` is enabled.
+  </Accordion>
+</AccordionGroup>
+

@@ -1,0 +1,52 @@
+---
+title: "Pings, HUD & Nametags"
+description: "Configure squad coordination, visual tracking, and player HUD defaults."
+icon: "radio-tower"
+---
+
+## Tactical pings
+
+Players use the middle mouse button for the ping system. A quick tap places a standard ping; holding the button opens the ping wheel.
+
+```lua
+Config.Settings['Pings'] = true
+Config.Settings['PingHoldMs'] = 500
+Config.Settings['PingTTL'] = 15
+Config.Settings['PingFollowingTTL'] = 4
+Config.Settings['PingCooldownMs'] = 1000
+```
+
+The packaged wheel includes car, danger, defend, enemy, go, and loot icons.
+
+## Ping feedback
+
+```lua
+Config.Settings['PingNotify'] = true
+Config.Settings['PingNotifyPosition'] = 'top-right'
+Config.Settings['PingNotifyDuration'] = 4000
+Config.Settings['PingSound'] = true
+Config.Settings['PingSoundName'] = 'Waypoint_Set'
+Config.Settings['PingSoundSet'] = 'HUD_FRONTEND_DEFAULT_SOUNDSET'
+```
+
+## Nametags
+
+```lua
+Config.Settings['Tags'] = true
+Config.Settings['TagsDistance'] = 50.0
+Config.Settings['TagsDistanceBoostEnabled'] = true
+Config.Settings['TagsDistanceBoostMultiplier'] = 2.0
+Config.Settings['TagsDistanceBoostMapper'] = 'MOUSE_BUTTON'
+Config.Settings['TagsDistanceBoostKey'] = 'MOUSE_EXTRABTN1'
+```
+
+The default boost key is the first extra mouse button.
+
+## Player defaults
+
+`Config.DefaultSettings` controls HUD visibility, nametags, blips, colors, chat notifications, maximum displayed members, minimized mode, radio icon, layout direction, position, and scale.
+
+<Note>
+The radio activity icon listens for `pma-voice` events. The rest of the squad system can run without pma-voice.
+</Note>
+

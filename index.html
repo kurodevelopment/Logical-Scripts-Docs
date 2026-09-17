@@ -72,7 +72,7 @@
     const $=s=>document.querySelector(s);
     const esc=s=>String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
     const slug=s=>s.toLowerCase().replace(/<[^>]+>/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    const icons={'Logical Battlepass':'🎮','Logical Crafting':'🔨','Logical Chat':'💬','Logical UI':'🏮'};
+    const icons={'Logical Battlepass':'🎮','Logical Crafting':'🔨','Logic Shop':'🛒','Logic Squads':'👥'};
     function pageTitle(path){if(path==='index')return 'Logical Scripts Documentation';const acronyms={api:'API',faq:'FAQ',ui:'UI',sql:'SQL'};return path.split('/').pop().split('-').map(w=>acronyms[w]||w.charAt(0).toUpperCase()+w.slice(1)).join(' ')}
     function pageDescription(path){if(path==='index')return 'Logical Scripts Resources Document';if(path.endsWith('/overview'))return `Everything you need to know about ${path.split('/')[0].replace(/^./,c=>c.toUpperCase())}.`;return ''}
     function inline(s){return String(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,(_,t,u)=>`<a href="${u.startsWith('/')?'#'+u.slice(1):u}"${u.startsWith('http')?' target="_blank" rel="noreferrer"':''}>${t}${u.startsWith('http')?' ↗':''}</a>`)}

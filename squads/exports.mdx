@@ -1,0 +1,47 @@
+---
+title: "Exports"
+description: "Client and server exports available to other FiveM resources."
+icon: "share-2"
+---
+
+## Client exports
+
+| Export | Returns |
+| --- | --- |
+| `GetSquad()` | Current squad table or `nil`. |
+| `IsInSquad()` | Whether the local player is in a squad. |
+| `OpenMenu()` | Opens the squad interface. |
+| `IsPlayerInMySquad(playerId)` | Whether a server ID is in the local squad. |
+| `GetSquadPlayers()` | Array of current squad player data. |
+| `IsSettingEnabled(setting)` | State of `relations`, `blips`, `tags`, or `hud`. |
+| `GetSquadOwner()` | Owner server ID or `nil`. |
+| `GetRelationsGroupHash()` | Relationship group hash or `nil`. |
+| `RefreshSquadRelations()` | Reapplies squad relationship protection. |
+
+```lua
+local inSquad = exports['logic-squads']:IsInSquad()
+local squad = exports['logic-squads']:GetSquad()
+
+if inSquad then
+    print(('Current squad: %s'):format(squad.name))
+end
+```
+
+## Server exports
+
+| Export | Parameters | Returns |
+| --- | --- | --- |
+| `GetSquad` | `source` | Full serialized squad or `nil`. |
+| `GetSquadById` | `squadId` | Full serialized squad or `nil`. |
+| `IsInSquad` | `source` | Boolean. |
+| `AreInSameSquad` | `firstSource`, `secondSource` | Boolean. |
+| `GetSquadMembers` | `squadId` | Member table or `nil`. |
+
+```lua
+local together = exports['logic-squads']:AreInSameSquad(source, targetId)
+
+if together then
+    print('Players are squad teammates')
+end
+```
+

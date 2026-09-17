@@ -134,30 +134,29 @@
         ]
       },
       {
-        "group": "Logical Chat",
-        "icon": "message-square",
+        "group": "Logic Shop",
+        "icon": "shopping-cart",
         "pages": [
-          "chat/overview",
-          "chat/installation",
-          "chat/configuration",
-          "chat/commands",
-          "chat/permissions",
-          "chat/faq"
+          "shop/overview",
+          "shop/installation",
+          "shop/configuration",
+          "shop/shops",
+          "shop/items",
+          "shop/banking",
+          "shop/faq"
         ]
       },
       {
-        "group": "Logical UI",
-        "icon": "panels-top-left",
+        "group": "Logic Squads",
+        "icon": "users",
         "pages": [
-          "ui/overview",
-          "ui/installation",
-          "ui/configuration",
-          "ui/components",
-          "ui/notifications",
-          "ui/progress",
-          "ui/input-dialog",
-          "ui/exports",
-          "ui/faq"
+          "squads/overview",
+          "squads/installation",
+          "squads/configuration",
+          "squads/commands",
+          "squads/pings-hud",
+          "squads/exports",
+          "squads/faq"
         ]
       }
     ]

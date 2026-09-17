@@ -1,0 +1,65 @@
+---
+title: "Shops & Locations"
+description: "Create shop types, locations, payment options, and map blips."
+icon: "map-pin"
+---
+
+## Shop structure
+
+Add each shop under `Config.Shops`. One definition can create any number of locations with the same catalog.
+
+```lua
+Config.Shops = {
+    ['example_shop'] = {
+        label = 'Example Shop',
+        logo = 'logo.png',
+        society = 'society_example',
+        payment = { cash = true, card = true },
+        blip = {
+            enabled = true,
+            sprite = 52,
+            color = 0,
+            scale = 0.65,
+            label = 'Example Shop'
+        },
+        locations = {
+            vec3(24.50, -1345.59, 29.49),
+            vec3(-47.28, -1758.52, 29.42)
+        },
+        categories = {
+            {
+                name = 'Food',
+                items = {
+                    { name = 'sandwich', label = 'Sandwich', price = 25, stock = -1 }
+                }
+            }
+        }
+    }
+}
+```
+
+## Generated location IDs
+
+The server creates one runtime shop for every coordinate. IDs follow this format:
+
+```text
+example_shop_1
+example_shop_2
+```
+
+## Payments
+
+Use the `payment` table to control which checkout methods appear.
+
+```lua
+payment = { cash = true, card = false }
+```
+
+## Job-restricted shops
+
+The supplied config contains a `jobs` example for an employee supply shop. The current `v1.2.0` server code does not read or enforce that table.
+
+<Warning>
+Do not rely on the `jobs` table for access control in this build. Add server-side job validation before using an employee-only or restricted shop.
+</Warning>
+
