@@ -1,0 +1,27 @@
+---
+title: "Permissions"
+description: "Restrict bench administration and protected recipe categories."
+icon: "shield-check"
+---
+
+## ACE setup
+
+```cfg server.cfg
+add_ace group.admin logicalcraft.admin allow
+add_ace identifier.license:YOUR_LICENSE_HERE logicalcraft.admin allow
+```
+
+## Job restriction example
+
+```lua
+jobs = {
+    police = 2,
+    mechanic = 0
+}
+```
+
+The number represents the minimum job grade.
+
+<Warning>
+Always repeat permission checks on the server before removing ingredients or granting an output. Hiding a recipe in the UI is not a security check.
+</Warning>

@@ -1,0 +1,30 @@
+---
+title: "Progress Bar"
+description: "Run cancelable timed actions with animation and control restrictions."
+icon: "loader-circle"
+---
+
+```lua
+local completed = exports['logical-ui']:Progress({
+    duration = 5000,
+    label = 'Repairing vehicle...',
+    canCancel = true,
+    disable = {
+        move = true,
+        combat = true,
+        car = true
+    },
+    anim = {
+        dict = 'mini@repair',
+        clip = 'fixing_a_ped'
+    }
+})
+
+if completed then
+    TriggerServerEvent('your-resource:completeRepair')
+end
+```
+
+<Warning>
+A completed progress bar is not proof that an action is valid. Recheck distance, items, permissions, and cooldowns on the server.
+</Warning>

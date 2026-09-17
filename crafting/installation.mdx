@@ -1,0 +1,46 @@
+---
+title: "Installation"
+description: "Install Logical Crafting on a supported FiveM server."
+icon: "download"
+---
+
+## Dependencies
+
+- `ox_lib`
+- `ox_target`
+- `ox_inventory`
+- `oxmysql`
+- A supported framework bridge
+
+## Install
+
+<Steps>
+  <Step title="Add the resource">
+    Place `logical-crafting` inside your resources directory.
+  </Step>
+  <Step title="Install inventory items">
+    Add every recipe ingredient, output item, and blueprint item to your inventory item definition.
+  </Step>
+  <Step title="Import SQL">
+    Import the included SQL once if your release stores permanent blueprints or crafting progression.
+  </Step>
+  <Step title="Review configuration">
+    Configure the framework, target system, prop model, benches, and recipes.
+  </Step>
+  <Step title="Start in order">
+    Ensure Logical Crafting after all dependencies.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure ox_lib
+ensure oxmysql
+ensure es_extended
+ensure ox_target
+ensure ox_inventory
+ensure logical-crafting
+```
+
+<Tip>
+Use a test bench with one cheap recipe before loading your complete production recipe list.
+</Tip>

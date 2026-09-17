@@ -1,0 +1,20 @@
+---
+title: "Battlepass FAQ"
+description: "Common Logical Battlepass questions and fixes."
+icon: "circle-help"
+---
+
+<AccordionGroup>
+  <Accordion title="The battlepass command does not open">
+    Confirm the resource started without errors, the command is enabled, and all UI files are present. Check both F8 and server console output.
+  </Accordion>
+  <Accordion title="Mission progress is not updating">
+    Confirm the mission event matches the integration event exactly and that progress is being sent from a trusted server-side handler.
+  </Accordion>
+  <Accordion title="A player cannot claim a reward">
+    Check their level, selected season, premium entitlement, previous claim state, and available inventory space.
+  </Accordion>
+  <Accordion title="Season dates appear incorrect">
+    Check the server timezone, database timezone, and the date format used in the configuration.
+  </Accordion>
+</AccordionGroup>

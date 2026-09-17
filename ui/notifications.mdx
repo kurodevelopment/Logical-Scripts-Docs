@@ -1,0 +1,37 @@
+---
+title: "Notifications"
+description: "Display styled Logical UI notifications."
+icon: "bell"
+---
+
+## Client export
+
+```lua
+exports['logical-ui']:Notify({
+    title = 'Vehicle Stored',
+    description = 'Your vehicle was stored successfully.',
+    type = 'success',
+    duration = 5000
+})
+```
+
+## Types
+
+- `success`
+- `error`
+- `warning`
+- `inform`
+
+## Event example
+
+```lua
+TriggerEvent('logical-ui:notify', {
+    title = 'Access Denied',
+    description = 'You do not have permission to use this.',
+    type = 'error'
+})
+```
+
+<Note>
+Use short titles and one clear sentence. Notifications are for immediate feedback, not long instructions.
+</Note>

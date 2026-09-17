@@ -1,0 +1,26 @@
+---
+title: "Exports"
+description: "Starter export documentation for Logical Battlepass integrations."
+icon: "braces"
+---
+
+## Server examples
+
+```lua
+local level = exports['logical-battlepass']:GetPlayerLevel(source)
+local xp = exports['logical-battlepass']:GetPlayerXP(source)
+```
+
+```lua
+exports['logical-battlepass']:AddMissionProgress(source, 'job_completed', 1)
+```
+
+## Client example
+
+```lua
+exports['logical-battlepass']:OpenBattlepass()
+```
+
+<Note>
+These are starter API names for the documentation layout. Replace them with the exact exports implemented by your released resource.
+</Note>

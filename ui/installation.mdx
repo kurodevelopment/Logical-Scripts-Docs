@@ -1,0 +1,26 @@
+---
+title: "Installation"
+description: "Install Logical UI and expose its components to other resources."
+icon: "download"
+---
+
+<Steps>
+  <Step title="Add the resource">
+    Place `logical-ui` inside your resources directory.
+  </Step>
+  <Step title="Configure defaults">
+    Choose the position, red accent color, sounds, duration, and allowed component behavior.
+  </Step>
+  <Step title="Start it early">
+    Ensure Logical UI before any resource that calls its exports.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure logical-ui
+ensure your-resource-that-uses-logical-ui
+```
+
+<Warning>
+If an export is called before Logical UI reaches the started state, the calling resource may throw a missing export error.
+</Warning>

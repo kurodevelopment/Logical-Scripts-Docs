@@ -1,0 +1,34 @@
+---
+title: "Configuration"
+description: "Configure framework, target, inventory, progress, and interaction settings."
+icon: "settings"
+---
+
+```lua config.lua
+Config = {}
+
+Config.Framework = 'esx'
+Config.Inventory = 'ox_inventory'
+Config.Target = 'ox_target'
+Config.DefaultBenchProp = `prop_tool_bench02`
+Config.InteractDistance = 2.0
+Config.CraftCancelKey = 'X'
+
+Config.Progress = {
+    position = 'bottom',
+    canCancel = true,
+    disable = {
+        move = true,
+        combat = true,
+        car = true
+    }
+}
+```
+
+## Configuration checklist
+
+- Framework and inventory names match your running resources.
+- The target resource starts before Logical Crafting.
+- Prop models are valid and load correctly.
+- Recipe item names match the inventory exactly.
+- Restricted benches have both UI filtering and server-side permission checks.

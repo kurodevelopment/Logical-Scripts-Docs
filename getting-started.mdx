@@ -1,0 +1,53 @@
+---
+title: "Getting Started"
+description: "Prepare your FiveM server for Logical Scripts resources."
+icon: "rocket"
+---
+
+## General requirements
+
+- A supported FiveM server artifact
+- A correctly configured framework
+- Any dependencies listed on the product's installation page
+- Access to `server.cfg`, your resources directory, and your database
+
+## Standard installation flow
+
+<Steps>
+  <Step title="Stop the server">
+    Avoid replacing active resource files while the server is running.
+  </Step>
+  <Step title="Extract the resource">
+    Place the provided folder inside your server's resources directory. Do not add an extra nested folder.
+  </Step>
+  <Step title="Install dependencies">
+    Start shared libraries and framework resources before the Logical Scripts resource.
+  </Step>
+  <Step title="Import required SQL">
+    If an SQL file is included, import it once into the database used by your server.
+  </Step>
+  <Step title="Configure and ensure">
+    Edit the documented configuration values and add the resource to `server.cfg`.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure ox_lib
+ensure oxmysql
+ensure es_extended
+
+ensure logical-resource-name
+```
+
+<Warning>
+The example order is general. Always follow the product-specific installation page when it lists a different dependency order.
+</Warning>
+
+## Updating a resource
+
+1. Read the changelog for breaking changes.
+2. Back up the existing resource and database.
+3. Keep a copy of your configuration changes.
+4. Replace the resource files.
+5. Reapply only the supported configuration values.
+6. Run new migrations once, if supplied.

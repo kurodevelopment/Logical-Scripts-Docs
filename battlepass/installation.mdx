@@ -1,0 +1,47 @@
+---
+title: "Installation"
+description: "Install Logical Battlepass and its required dependencies."
+icon: "download"
+---
+
+## Dependencies
+
+- `ox_lib`
+- `oxmysql`
+- A supported ESX, QBCore, or Qbox bridge included with your release
+
+## Install the resource
+
+<Steps>
+  <Step title="Extract the download">
+    Place `logical-battlepass` in your resources directory without renaming the folder.
+  </Step>
+  <Step title="Import the database file">
+    Import the included SQL file into the same database configured for your framework.
+  </Step>
+  <Step title="Configure the framework">
+    Open the resource configuration and select your framework, inventory, and notification options.
+  </Step>
+  <Step title="Add the start order">
+    Ensure the resource after its dependencies.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure ox_lib
+ensure oxmysql
+ensure es_extended
+ensure logical-battlepass
+```
+
+## Verify the install
+
+1. Restart the server.
+2. Join with a test character.
+3. Open the battlepass using the configured command or keybind.
+4. Confirm the player's season record is created.
+5. Complete one test mission and claim one test reward.
+
+<Warning>
+Do not import the same SQL migration repeatedly. Read the included migration notes before updating an existing installation.
+</Warning>

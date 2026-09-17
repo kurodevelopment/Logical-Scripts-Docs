@@ -1,0 +1,46 @@
+---
+title: "Items Setup"
+description: "Add crafting ingredients, outputs, and blueprint items to ox_inventory."
+icon: "package-plus"
+---
+
+## ox_inventory example
+
+```lua ox_inventory/data/items.lua
+['scrap_metal'] = {
+    label = 'Scrap Metal',
+    weight = 250,
+    stack = true,
+    close = false,
+    description = 'Reusable metal scraps.'
+},
+
+['blueprint_advanced_lockpick'] = {
+    label = 'Advanced Lockpick Blueprint',
+    weight = 100,
+    stack = false,
+    close = true,
+    description = 'Teaches an advanced lockpick recipe.'
+},
+
+['advanced_lockpick'] = {
+    label = 'Advanced Lockpick',
+    weight = 300,
+    stack = true,
+    close = true
+},
+```
+
+## Images
+
+Place matching PNG files in:
+
+```text
+ox_inventory/web/images/
+```
+
+Use lowercase filenames matching the item key, such as `scrap_metal.png`.
+
+<Tip>
+Restart `ox_inventory` or the full server after changing item definitions. A client reconnect may also be required to refresh cached UI data.
+</Tip>

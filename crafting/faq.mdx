@@ -1,0 +1,20 @@
+---
+title: "Crafting FAQ"
+description: "Common Logical Crafting questions and fixes."
+icon: "circle-help"
+---
+
+<AccordionGroup>
+  <Accordion title="The crafting bench does not appear">
+    Verify the model name, coordinates, resource start order, and client console. Also confirm the bench is enabled in the configuration.
+  </Accordion>
+  <Accordion title="The target option is missing">
+    Confirm `ox_target` is started first and that your configured target resource name is correct.
+  </Accordion>
+  <Accordion title="Items show as missing even though I have them">
+    Check exact lowercase item keys, inventory bridge selection, metadata requirements, and whether the item definitions loaded successfully.
+  </Accordion>
+  <Accordion title="The blueprint does not stay unlocked">
+    Confirm the SQL table exists and the resource is saving against the correct character identifier.
+  </Accordion>
+</AccordionGroup>

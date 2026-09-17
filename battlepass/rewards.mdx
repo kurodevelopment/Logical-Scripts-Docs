@@ -1,0 +1,43 @@
+---
+title: "Rewards"
+description: "Configure free and premium battlepass rewards."
+icon: "gift"
+---
+
+## Reward example
+
+```lua config/rewards.lua
+Config.Rewards = {
+    [1] = {
+        free = {
+            type = 'item',
+            name = 'water',
+            amount = 5
+        },
+        premium = {
+            type = 'money',
+            account = 'bank',
+            amount = 5000
+        }
+    }
+}
+```
+
+## Recommended reward types
+
+- Inventory item
+- Bank or cash balance
+- Vehicle entitlement
+- Cosmetic entitlement
+- Server-side custom callback
+
+<Warning>
+Validate every claim on the server: player level, season, track access, and previous claim state. Never trust values sent by the browser UI or game client.
+</Warning>
+
+## Balancing checklist
+
+- Avoid economy-breaking cash jumps.
+- Verify every configured item exists.
+- Keep exclusive rewards near meaningful progression milestones.
+- Test full inventories and failed vehicle grants.

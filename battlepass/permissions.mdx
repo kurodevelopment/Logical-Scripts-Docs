@@ -1,0 +1,24 @@
+---
+title: "Permissions"
+description: "Restrict battlepass management and testing tools."
+icon: "shield-check"
+---
+
+## ACE permission example
+
+```cfg server.cfg
+add_ace group.admin logicalbattlepass.admin allow
+add_ace identifier.license:YOUR_LICENSE_HERE logicalbattlepass.admin allow
+```
+
+## Recommended access levels
+
+| Permission | Purpose | Recommended users |
+| --- | --- | --- |
+| `logicalbattlepass.admin` | Open management tools | Trusted management |
+| `logicalbattlepass.test` | Add test XP or reset test data | Developers only |
+| `logicalbattlepass.premium` | Optional entitlement override | Automated entitlement only |
+
+<Warning>
+Do not give testing permissions to normal staff. XP and reward testing can affect the live economy.
+</Warning>

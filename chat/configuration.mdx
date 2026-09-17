@@ -1,0 +1,26 @@
+---
+title: "Configuration"
+description: "Configure chat appearance, identity, distance, and rate limits."
+icon: "settings"
+---
+
+```lua config.lua
+Config = {}
+
+Config.Framework = 'esx'
+Config.UseCharacterName = true
+Config.LocalChatDistance = 20.0
+Config.MaxMessageLength = 250
+Config.MessageCooldown = 750
+Config.ClearCommand = 'clear'
+
+Config.Theme = {
+    primary = '#E31B23',
+    background = 'rgba(8, 8, 8, 0.92)',
+    text = '#FFFFFF'
+}
+```
+
+<Tip>
+Keep message cooldowns high enough to reduce spam without making normal conversation feel delayed.
+</Tip>

@@ -1,0 +1,37 @@
+---
+title: "Blueprints"
+description: "Configure inventory and permanent blueprint unlocks."
+icon: "scroll-text"
+---
+
+## Blueprint example
+
+```lua config/blueprints.lua
+Config.Blueprints = {
+    advanced_lockpick = {
+        label = 'Advanced Lockpick Blueprint',
+        item = 'blueprint_advanced_lockpick',
+        recipe = 'advanced_lockpick',
+        consumeOnLearn = true,
+        permanent = true
+    }
+}
+```
+
+## Access models
+
+<Tabs>
+  <Tab title="Inventory Item">
+    The player must carry the blueprint while crafting. This is simple and tradable.
+  </Tab>
+  <Tab title="Permanent Unlock">
+    The blueprint is learned once and stored against the character identifier.
+  </Tab>
+  <Tab title="Permission Unlock">
+    Access is provided by job, gang, ACE permission, or a server-side integration.
+  </Tab>
+</Tabs>
+
+<Warning>
+Permanent unlocks must use a stable character identifier. Do not use a temporary server ID as the database key.
+</Warning>

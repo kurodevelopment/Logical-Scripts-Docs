@@ -1,0 +1,165 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Logical Scripts",
+  "description": "Official documentation for Logical Scripts FiveM resources.",
+  "colors": {
+    "primary": "#E31B23",
+    "light": "#FF4D55",
+    "dark": "#A60F16"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/logo/favicon.svg",
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
+  "fonts": {
+    "family": "Inter",
+    "heading": {
+      "family": "Space Grotesk"
+    }
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "background": {
+    "decoration": "gradient",
+    "color": {
+      "light": "#FFF7F7",
+      "dark": "#080808"
+    }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": {
+      "theme": {
+        "light": "github-light",
+        "dark": "github-dark"
+      }
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Changelog",
+        "href": "/changelog"
+      },
+      {
+        "label": "Store",
+        "href": "https://logicalscripts.net"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Join Discord",
+      "href": "https://discord.gg/logicalscripts"
+    }
+  },
+  "footer": {
+    "socials": {
+      "discord": "https://discord.gg/logicalscripts"
+    },
+    "links": [
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Documentation",
+            "href": "/"
+          },
+          {
+            "label": "Changelog",
+            "href": "/changelog"
+          }
+        ]
+      },
+      {
+        "header": "Support",
+        "items": [
+          {
+            "label": "Get Support",
+            "href": "/support"
+          },
+          {
+            "label": "Discord",
+            "href": "https://discord.gg/logicalscripts"
+          }
+        ]
+      }
+    ]
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "icon": "rocket",
+        "pages": [
+          "index",
+          "getting-started",
+          "support",
+          "changelog"
+        ]
+      },
+      {
+        "group": "Logical Battlepass",
+        "icon": "trophy",
+        "pages": [
+          "battlepass/overview",
+          "battlepass/installation",
+          "battlepass/configuration",
+          "battlepass/missions",
+          "battlepass/rewards",
+          "battlepass/permissions",
+          "battlepass/exports",
+          "battlepass/faq"
+        ]
+      },
+      {
+        "group": "Logical Crafting",
+        "icon": "hammer",
+        "pages": [
+          "crafting/overview",
+          "crafting/installation",
+          "crafting/configuration",
+          "crafting/benches",
+          "crafting/blueprints",
+          "crafting/items",
+          "crafting/permissions",
+          "crafting/exports",
+          "crafting/faq"
+        ]
+      },
+      {
+        "group": "Logical Chat",
+        "icon": "message-square",
+        "pages": [
+          "chat/overview",
+          "chat/installation",
+          "chat/configuration",
+          "chat/commands",
+          "chat/permissions",
+          "chat/faq"
+        ]
+      },
+      {
+        "group": "Logical UI",
+        "icon": "panels-top-left",
+        "pages": [
+          "ui/overview",
+          "ui/installation",
+          "ui/configuration",
+          "ui/components",
+          "ui/notifications",
+          "ui/progress",
+          "ui/input-dialog",
+          "ui/exports",
+          "ui/faq"
+        ]
+      }
+    ]
+  }
+}

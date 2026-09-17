@@ -1,0 +1,30 @@
+---
+title: "Commands"
+description: "Configure public, roleplay, job, and staff chat commands."
+icon: "terminal"
+---
+
+## Suggested command set
+
+| Command | Visibility | Purpose |
+| --- | --- | --- |
+| `/me` | Nearby players | Character action |
+| `/do` | Nearby players | Scene description |
+| `/ooc` | Configurable | Out-of-character message |
+| `/clear` | Self | Clear local chat display |
+| `/staffchat` | Staff only | Internal staff communication |
+
+## Command example
+
+```lua config/commands.lua
+Config.Commands.me = {
+    enabled = true,
+    distance = 20.0,
+    color = '#FF4D55',
+    label = 'ME'
+}
+```
+
+<Warning>
+Staff and job channels must validate permissions on the server. Never rely only on a hidden client command suggestion.
+</Warning>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="112" viewBox="0 0 480 112" role="img" aria-label="Logical Scripts">
+  <defs>
+    <linearGradient id="r" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5b62"/>
+      <stop offset="1" stop-color="#c5141c"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="8" width="96" height="96" rx="24" fill="#151517" stroke="#3b1013" stroke-width="2"/>
+  <path d="M31 29h18v37h30v17H31z" fill="url(#r)"/>
+  <path d="M64 29h17v17H64z" fill="#fff"/>
+  <text x="120" y="54" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="34" fill="#ffffff">LOGICAL</text>
+  <text x="120" y="83" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="23" letter-spacing="7" fill="#ff4d55">SCRIPTS</text>
+</svg>

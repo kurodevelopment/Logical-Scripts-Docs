@@ -1,0 +1,26 @@
+---
+title: "Exports"
+description: "Logical UI client API starter reference."
+icon: "braces"
+---
+
+| Export | Purpose | Return |
+| --- | --- | --- |
+| `Notify(data)` | Show a notification | None |
+| `Progress(data)` | Run a timed action | `boolean` |
+| `Input(data)` | Open an input form | `table` or `nil` |
+| `Confirm(data)` | Ask for confirmation | `boolean` |
+| `OpenContext(data)` | Open an action menu | Varies |
+
+```lua
+local confirmed = exports['logical-ui']:Confirm({
+    title = 'Delete Preset?',
+    description = 'This action cannot be undone.',
+    confirmLabel = 'Delete',
+    cancelLabel = 'Cancel'
+})
+```
+
+<Note>
+This page is a starter API layout. Publish only exports that exist in the released build.
+</Note>

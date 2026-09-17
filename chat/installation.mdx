@@ -1,0 +1,33 @@
+---
+title: "Installation"
+description: "Install Logical Chat and disable conflicting chat resources."
+icon: "download"
+---
+
+<Steps>
+  <Step title="Back up your current chat">
+    Save any custom commands, templates, and CSS from the chat resource you are replacing.
+  </Step>
+  <Step title="Install Logical Chat">
+    Place `logical-chat` in your resources directory.
+  </Step>
+  <Step title="Disable conflicts">
+    Do not run two full chat interfaces at the same time. Keep required base chat dependencies only if your release documents them.
+  </Step>
+  <Step title="Configure and start">
+    Select the framework and add the resource to your start order.
+  </Step>
+</Steps>
+
+```cfg server.cfg
+ensure chat
+ensure es_extended
+ensure logical-chat
+```
+
+## Test
+
+- Send a normal chat message.
+- Test `/me`, `/do`, and staff-only commands.
+- Confirm player names use the expected character identity.
+- Confirm the chat hides and reopens correctly.

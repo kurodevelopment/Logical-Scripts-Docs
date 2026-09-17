@@ -1,0 +1,42 @@
+---
+title: "Missions"
+description: "Define daily, weekly, and seasonal objectives."
+icon: "target"
+---
+
+## Mission structure
+
+```lua config/missions.lua
+Config.Missions = {
+    {
+        id = 'drive_10km',
+        label = 'Road Runner',
+        description = 'Drive a total of 10 kilometers.',
+        category = 'daily',
+        event = 'vehicle_distance',
+        goal = 10000,
+        xp = 250
+    },
+    {
+        id = 'complete_jobs',
+        label = 'On The Clock',
+        description = 'Complete 5 supported job activities.',
+        category = 'weekly',
+        event = 'job_completed',
+        goal = 5,
+        xp = 1000
+    }
+}
+```
+
+## Good mission design
+
+| Mission type | Suggested purpose | Reset |
+| --- | --- | --- |
+| Daily | Short, reachable play goals | Every day |
+| Weekly | Multi-session progression | Every week |
+| Seasonal | Long-term achievement | End of season |
+
+<Warning>
+Only update mission progress from trusted server-side events. Do not award XP from an unrestricted client event.
+</Warning>

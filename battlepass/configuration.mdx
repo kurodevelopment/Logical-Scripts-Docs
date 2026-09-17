@@ -1,0 +1,37 @@
+---
+title: "Configuration"
+description: "Configure the season, leveling, interface, and server integration."
+icon: "settings"
+---
+
+## Basic example
+
+```lua config.lua
+Config = {}
+
+Config.Framework = 'esx'
+Config.Command = 'battlepass'
+Config.DefaultKey = 'F7'
+Config.Season = {
+    id = 'season_1',
+    name = 'Season One',
+    maxLevel = 50,
+    expiresAt = '2026-12-31 23:59:59'
+}
+
+Config.Leveling = {
+    xpPerLevel = 1000,
+    allowOverflow = false
+}
+```
+
+## Important rules
+
+- Give each season a unique `id`.
+- Use the same timezone consistently between your server and database.
+- Never lower `maxLevel` while a season is active without testing existing player data.
+- Keep reward item names synchronized with your inventory.
+
+<Tip>
+Create a short private test season first. It is the fastest way to validate missions, premium access, and all reward handlers.
+</Tip>

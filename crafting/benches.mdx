@@ -1,0 +1,37 @@
+---
+title: "Crafting Benches"
+description: "Create prop-based crafting stations with categories and permissions."
+icon: "anvil"
+---
+
+## Bench example
+
+```lua config/benches.lua
+Config.Benches = {
+    mechanic = {
+        label = 'Mechanic Workbench',
+        model = `prop_tool_bench02`,
+        coords = vec4(-337.24, -135.18, 39.01, 70.0),
+        categories = { 'tools', 'vehicle_parts' },
+        jobs = {
+            mechanic = 0
+        },
+        distance = 2.0
+    }
+}
+```
+
+## Field reference
+
+| Field | Purpose |
+| --- | --- |
+| `label` | Text shown to the player |
+| `model` | Prop spawned for the bench |
+| `coords` | Position and heading |
+| `categories` | Recipe groups shown at this bench |
+| `jobs` | Allowed jobs and minimum grades |
+| `distance` | Target interaction range |
+
+<Warning>
+Do not place benches inside geometry or too close to doors. Test prop collision and target access from multiple angles.
+</Warning>

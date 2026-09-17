@@ -1,0 +1,29 @@
+---
+title: "Exports"
+description: "Starter integration examples for Logical Crafting."
+icon: "braces"
+---
+
+## Client examples
+
+```lua
+exports['logical-crafting']:OpenBench('mechanic')
+```
+
+```lua
+local open = exports['logical-crafting']:IsCraftingOpen()
+```
+
+## Server examples
+
+```lua
+local learned = exports['logical-crafting']:HasBlueprint(source, 'advanced_lockpick')
+```
+
+```lua
+exports['logical-crafting']:GrantBlueprint(source, 'advanced_lockpick')
+```
+
+<Note>
+Replace these starter names with the exports included in your production resource.
+</Note>
