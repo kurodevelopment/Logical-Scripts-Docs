@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>Logical Scripts Documentation</title>
+  <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+  <style>
+    :root{--bg:#080808;--panel:#0e0e10;--panel2:#141416;--line:#242428;--text:#f7f7f8;--muted:#9d9da7;--red:#e31b23;--red2:#ff4d55;--glow:rgba(227,27,35,.22);--header:70px;--side:286px;--toc:230px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 52% -15%,rgba(227,27,35,.14),transparent 36%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}button,input{font:inherit}
+    .topbar{height:var(--header);position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;gap:22px;padding:0 26px;border-bottom:1px solid var(--line);background:rgba(8,8,8,.86);backdrop-filter:blur(18px)}
+    .brand{display:flex;align-items:center;width:260px;min-width:260px}.brand img{width:218px;max-height:52px;object-fit:contain;object-position:left center}.topspace{flex:1}.discord{display:flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(255,77,85,.35);border-radius:10px;background:linear-gradient(180deg,rgba(227,27,35,.18),rgba(227,27,35,.08));font-weight:750;font-size:14px}.discord:hover{border-color:var(--red2);box-shadow:0 0 24px var(--glow)}
+    .menu{display:none;background:transparent;border:0;color:#fff;font-size:23px;cursor:pointer}.layout{display:grid;grid-template-columns:var(--side) minmax(0,1fr) var(--toc);padding-top:var(--header);min-height:100vh}
+    .sidebar{position:fixed;top:var(--header);bottom:0;width:var(--side);overflow:auto;padding:22px 18px 34px;border-right:1px solid var(--line);background:rgba(10,10,11,.72)}.search{position:relative;margin-bottom:24px}.search input{width:100%;height:42px;border:1px solid var(--line);border-radius:10px;background:#111113;color:#fff;padding:0 13px 0 39px;outline:0}.search input:focus{border-color:rgba(255,77,85,.75);box-shadow:0 0 0 3px rgba(227,27,35,.10)}.search span{position:absolute;left:13px;top:9px;color:var(--muted)}
+    .nav-group{margin:0 0 25px}.nav-title{margin:0 9px 8px;color:#73737c;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:850}.nav-link{display:block;padding:8px 10px;margin:2px 0;border-radius:8px;color:#b6b6bf;font-size:14px;transition:.16s}.nav-link:hover{color:#fff;background:#151517}.nav-link.active{color:#fff;background:linear-gradient(90deg,rgba(227,27,35,.2),rgba(227,27,35,.04));box-shadow:inset 3px 0 var(--red)}
+    main{grid-column:2;padding:58px 56px 100px;max-width:980px;width:100%;margin:0 auto}.eyebrow{color:var(--red2);font-weight:780;font-size:13px;letter-spacing:.04em;margin-bottom:12px}.page-title{font-size:45px;line-height:1.12;letter-spacing:-.035em;margin:0 0 15px}.description{color:var(--muted);font-size:19px;max-width:760px;margin:0 0 44px}.content h2{font-size:27px;line-height:1.25;letter-spacing:-.02em;margin:54px 0 17px;padding-top:8px}.content h3{font-size:20px;margin:34px 0 12px}.content p{color:#c8c8ce;margin:12px 0 18px}.content strong{color:#fff}.content a{color:var(--red2);text-decoration:underline;text-decoration-color:rgba(255,77,85,.4);text-underline-offset:3px}.content ul,.content ol{color:#c8c8ce;padding-left:23px}.content li{margin:7px 0}.content code{font-family:"SFMono-Regular",Consolas,monospace;font-size:.88em;background:#19191c;border:1px solid #29292e;padding:2px 6px;border-radius:5px;color:#ff858a}.content pre{position:relative;margin:22px 0 30px;padding:20px 22px;overflow:auto;background:#0c0c0e;border:1px solid #242429;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.28)}.content pre code{background:none;border:0;padding:0;color:#e6e6ea;line-height:1.7}.code-label{display:block;color:#777781;font:700 11px Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+    .callout{margin:24px 0;padding:16px 18px;border-radius:11px;border:1px solid #303035;background:#121214;color:#cdccd2}.callout.note{border-left:3px solid #5d7cff}.callout.tip{border-left:3px solid #37c98b}.callout.warning{border-left:3px solid var(--red2);background:rgba(227,27,35,.07)}.callout b{display:block;color:#fff;margin-bottom:4px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0 30px}.card{display:block;padding:20px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#141416,#0e0e10);text-decoration:none!important;transition:.2s}.card:hover{transform:translateY(-2px);border-color:rgba(255,77,85,.65);box-shadow:0 16px 38px rgba(0,0,0,.28),0 0 22px var(--glow)}.card h3{font-size:16px;margin:0 0 7px;color:#fff}.card p{font-size:14px;margin:0;color:#9f9fa8}.steps{counter-reset:step;margin:24px 0}.step{position:relative;padding:2px 0 23px 48px;border-left:1px solid #2e2e33;margin-left:16px}.step:last-child{border-left-color:transparent}.step:before{counter-increment:step;content:counter(step);position:absolute;left:-16px;top:0;width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:#17171a;border:1px solid rgba(255,77,85,.5);color:var(--red2);font-weight:800}.step h3{margin:1px 0 4px;font-size:16px}.step p{margin:0}.content table{width:100%;border-collapse:separate;border-spacing:0;margin:22px 0 30px;border:1px solid var(--line);border-radius:11px;overflow:hidden}.content th,.content td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:14px}.content th{background:#151517;color:#fff}.content td{color:#bdbdc5}.content tr:last-child td{border-bottom:0}.accordion details{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#111113}.accordion summary{cursor:pointer;padding:15px 17px;font-weight:750}.accordion details>div{padding:0 17px 15px;color:#bdbdc5}.tabs{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:22px 0}.tab{padding:16px 18px;border-bottom:1px solid var(--line)}.tab:last-child{border:0}.tab h3{margin:0 0 5px;font-size:15px}.tab p{margin:0}
+    .toc{position:fixed;top:var(--header);right:0;bottom:0;width:var(--toc);overflow:auto;padding:48px 26px;border-left:1px solid transparent}.toc-title{font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.1em;color:#777781;margin-bottom:11px}.toc a{display:block;color:#888891;font-size:13px;padding:5px 0}.toc a:hover{color:#fff}.toc .sub{padding-left:12px}.footerline{margin-top:70px;padding-top:25px;border-top:1px solid var(--line);color:#686871;font-size:13px}.empty{color:#999;padding:20px 0}
+    @media(max-width:1100px){:root{--toc:0px}.layout{grid-template-columns:var(--side) minmax(0,1fr)}.toc{display:none}}
+    @media(max-width:760px){.topbar{padding:0 16px}.menu{display:block}.brand{width:auto;min-width:0}.brand img{width:184px}.discord span{display:none}.layout{display:block}.sidebar{z-index:35;transform:translateX(-100%);transition:.23s;width:min(86vw,310px);box-shadow:18px 0 45px rgba(0,0,0,.55)}.sidebar.open{transform:translateX(0)}main{padding:38px 22px 75px}.page-title{font-size:36px}.description{font-size:17px}.cards{grid-template-columns:1fr}.content table{display:block;overflow:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+    <a class="brand" href="#index"><img src="logo/dark.svg" alt="Logical Scripts"></a>
+    <div class="topspace"></div>
+    <a class="discord" href="https://discord.gg/logicalscripts" target="_blank" rel="noreferrer">◉ <span>Join Discord</span></a>
+  </header>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search documentation..."></div>
+      <nav id="nav"></nav>
+    </aside>
+    <main>
+      <div class="eyebrow" id="eyebrow">Documentation</div>
+      <h1 class="page-title" id="title">Loading…</h1>
+      <p class="description" id="description"></p>
+      <article class="content" id="content"><p class="empty">Loading documentation…</p></article>
+      <div class="footerline">© 2026 Logical Scripts. Built for serious FiveM servers.</div>
+    </main>
+    <aside class="toc"><div class="toc-title">On this page</div><nav id="toc"></nav></aside>
+  </div>
+  <script>
+    const state={config:null,pages:[],meta:new Map()};
+    const $=s=>document.querySelector(s);
+    const esc=s=>String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const slug=s=>s.toLowerCase().replace(/<[^>]+>/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    function inline(s){
+      return s.replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,(_,t,u)=>`<a href="${u.startsWith('/')?'#'+u.slice(1):u}"${u.startsWith('http')?' target="_blank" rel="noreferrer"':''}>${t}</a>`);
+    }
+    function components(src){
+      return src
+        .replace(/<CardGroup[^>]*>/g,'<div class="cards">').replace(/<\/CardGroup>/g,'</div>')
+        .replace(/<Card\s+title="([^"]+)"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/Card>/g,(_,t,h,b)=>`<a class="card" href="#${h.replace(/^\//,'')}"><h3>${t}</h3><p>${b.trim()}</p></a>`)
+        .replace(/<Card\s+title="([^"]+)"[^>]*>([\s\S]*?)<\/Card>/g,(_,t,b)=>`<div class="card"><h3>${t}</h3><p>${b.trim()}</p></div>`)
+        .replace(/<Steps>/g,'<div class="steps">').replace(/<\/Steps>/g,'</div>')
+        .replace(/<Step\s+title="([^"]+)"[^>]*>([\s\S]*?)<\/Step>/g,(_,t,b)=>`<div class="step"><h3>${t}</h3><p>${b.trim()}</p></div>`)
+        .replace(/<Note>([\s\S]*?)<\/Note>/g,(_,b)=>`<div class="callout note"><b>Note</b>${b.trim()}</div>`)
+        .replace(/<Tip>([\s\S]*?)<\/Tip>/g,(_,b)=>`<div class="callout tip"><b>Tip</b>${b.trim()}</div>`)
+        .replace(/<Warning>([\s\S]*?)<\/Warning>/g,(_,b)=>`<div class="callout warning"><b>Warning</b>${b.trim()}</div>`)
+        .replace(/<AccordionGroup>/g,'<div class="accordion">').replace(/<\/AccordionGroup>/g,'</div>')
+        .replace(/<Accordion\s+title="([^"]+)"[^>]*>([\s\S]*?)<\/Accordion>/g,(_,t,b)=>`<details><summary>${t}</summary><div>${b.trim()}</div></details>`)
+        .replace(/<Tabs>/g,'<div class="tabs">').replace(/<\/Tabs>/g,'</div>')
+        .replace(/<Tab\s+title="([^"]+)"[^>]*>([\s\S]*?)<\/Tab>/g,(_,t,b)=>`<div class="tab"><h3>${t}</h3><p>${b.trim()}</p></div>`);
+    }
+    function markdown(src){
+      src=components(src); const lines=src.split('\n'); let out='',i=0,inCode=false,code=[],lang='',list=null;
+      const closeList=()=>{if(list){out+=`</${list}>`;list=null}};
+      while(i<lines.length){let line=lines[i];
+        if(line.startsWith('```')){closeList();if(!inCode){inCode=true;lang=line.slice(3).trim();code=[]}else{out+=`<pre>${lang?`<span class="code-label">${esc(lang)}</span>`:''}<code>${esc(code.join('\n'))}</code></pre>`;inCode=false}i++;continue}
+        if(inCode){code.push(line);i++;continue}
+        if(line.trim().startsWith('|')&&i+1<lines.length&&/^\s*\|?\s*[-:]+/.test(lines[i+1].replace(/\|/g,' | '))){closeList();const headers=line.split('|').filter(x=>x.trim()).map(x=>x.trim());i+=2;let rows=[];while(i<lines.length&&lines[i].trim().startsWith('|')){rows.push(lines[i].split('|').filter(x=>x.trim()).map(x=>x.trim()));i++}out+='<table><thead><tr>'+headers.map(x=>`<th>${inline(x)}</th>`).join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>`<td>${inline(x)}</td>`).join('')+'</tr>').join('')+'</tbody></table>';continue}
+        if(/^###\s+/.test(line)){closeList();const t=line.replace(/^###\s+/,'');out+=`<h3 id="${slug(t)}">${inline(t)}</h3>`;i++;continue}
+        if(/^##\s+/.test(line)){closeList();const t=line.replace(/^##\s+/,'');out+=`<h2 id="${slug(t)}">${inline(t)}</h2>`;i++;continue}
+        if(/^#\s+/.test(line)){i++;continue}
+        let m=line.match(/^[-*]\s+(.+)/);if(m){if(list!=='ul'){closeList();list='ul';out+='<ul>'}out+=`<li>${inline(m[1])}</li>`;i++;continue}
+        m=line.match(/^\d+\.\s+(.+)/);if(m){if(list!=='ol'){closeList();list='ol';out+='<ol>'}out+=`<li>${inline(m[1])}</li>`;i++;continue}
+        closeList();if(!line.trim()){i++;continue}
+        if(line.trim().startsWith('<')){out+=line;i++;continue}
+        let para=line.trim();while(i+1<lines.length&&lines[i+1].trim()&&!/^(#{1,3}\s|[-*]\s|\d+\.\s|```|<|\|)/.test(lines[i+1])){para+=' '+lines[++i].trim()}out+=`<p>${inline(para)}</p>`;i++;
+      }closeList();return out;
+    }
+    function parseMdx(text){const fm=text.match(/^---\n([\s\S]*?)\n---\n/);let meta={title:'Documentation',description:''},body=text;if(fm){body=text.slice(fm[0].length);for(const line of fm[1].split('\n')){const p=line.indexOf(':');if(p>0)meta[line.slice(0,p).trim()]=line.slice(p+1).trim().replace(/^"|"$/g,'')} }return{meta,body}}
+    async function boot(){
+      state.config=await fetch('docs.json').then(r=>r.json());
+      for(const group of state.config.navigation.groups){for(const page of group.pages){try{const text=await fetch(page+'.mdx').then(r=>r.text());const {meta}=parseMdx(text);state.meta.set(page,meta);state.pages.push({path:page,group:group.group,...meta})}catch{}}}
+      buildNav();addEventListener('hashchange',loadPage);loadPage();
+    }
+    function buildNav(filter=''){const nav=$('#nav');nav.innerHTML='';for(const group of state.config.navigation.groups){const pages=group.pages.map(path=>state.pages.find(p=>p.path===path)).filter(Boolean).filter(p=>(p.title+' '+p.description+' '+p.group).toLowerCase().includes(filter));if(!pages.length)continue;const box=document.createElement('section');box.className='nav-group';box.innerHTML=`<div class="nav-title">${esc(group.group)}</div>`;for(const p of pages)box.innerHTML+=`<a class="nav-link" data-path="${p.path}" href="#${p.path}">${esc(p.title)}</a>`;nav.appendChild(box)}markActive()}
+    function markActive(){const route=(location.hash.slice(1)||'index').replace(/^\//,'');document.querySelectorAll('.nav-link').forEach(a=>a.classList.toggle('active',a.dataset.path===route))}
+    async function loadPage(){let route=(location.hash.slice(1)||'index').replace(/^\//,'');if(!state.meta.has(route))route='index';markActive();const p=state.pages.find(x=>x.path===route);$('#eyebrow').textContent=p?.group||'Documentation';$('#title').textContent=p?.title||'Logical Scripts';$('#description').textContent=p?.description||'';document.title=`${p?.title||'Docs'} - Logical Scripts`;try{const text=await fetch(route+'.mdx').then(r=>{if(!r.ok)throw 0;return r.text()});const {body}=parseMdx(text);$('#content').innerHTML=markdown(body);buildToc();window.scrollTo(0,0)}catch{$('#content').innerHTML='<p class="empty">This page could not be loaded.</p>'}$('#sidebar').classList.remove('open')}
+    function buildToc(){const toc=$('#toc');toc.innerHTML='';document.querySelectorAll('#content h2,#content h3').forEach(h=>{const a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;if(h.tagName==='H3')a.className='sub';a.onclick=e=>{e.preventDefault();h.scrollIntoView({behavior:'smooth'});history.replaceState(null,'','#'+(location.hash.slice(1).split('#')[0]))};toc.appendChild(a)})}
+    $('#search').addEventListener('input',e=>buildNav(e.target.value.trim().toLowerCase()));$('#menu').onclick=()=>$('#sidebar').classList.toggle('open');boot().catch(()=>{$('#title').textContent='Logical Scripts';$('#content').innerHTML='<p class="empty">Unable to load the documentation configuration.</p>'});
+  </script>
+</body>
+</html>
